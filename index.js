@@ -43,13 +43,13 @@ Enums.prototype.getByCode = function(code) {
 
 Enums.prototype.getBy = function(name, val) {
   var enums = this.enums;
-  for (var i = 0, len = enums.length; i < len; i++) {
-    var item = enums[i];
+  var em = enums.find(function(item) {
     if (item[name] === val) {
       return item;
     }
-  }
-  return null;
+  });
+
+  return em || null;
 };
 
 Enums.prototype.values = function() {
